@@ -12,11 +12,27 @@ const initialState = {
 
 export function characterReducer(state=initialState, action) {
     // Handle these sync actions
+    console.log(action);
     if (action.type === SEARCH_CHARACTERS_REQUEST) {
+        return({
+            ...initialState,
+            loading: true,
+            error: null
+        })
     }
     else if (action.type === SEARCH_CHARACTERS_SUCCESS) {
+        return({
+            ...initialState,
+            loading: false,
+            // charcters: (name)
+        })
     }
     else if (action.type === SEARCH_CHARACTERS_ERROR) {
+        return({
+            ...initialState,
+            loading: false,
+            error: action.error
+        })
     }
     return state;
 }
