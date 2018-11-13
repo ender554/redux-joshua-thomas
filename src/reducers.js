@@ -15,16 +15,17 @@ export function characterReducer(state=initialState, action) {
     console.log(action);
     if (action.type === SEARCH_CHARACTERS_REQUEST) {
         return({
-            ...initialState,
+            ...state,
             loading: true,
             error: null
         })
     }
     else if (action.type === SEARCH_CHARACTERS_SUCCESS) {
         return({
-            ...initialState,
+            ...state,
             loading: false,
-            // charcters: (name)
+            characters: action.characters,
+            error: null
         })
     }
     else if (action.type === SEARCH_CHARACTERS_ERROR) {
